@@ -9,6 +9,8 @@ def index(request):
     })
 
 def title(request,title):
-    print(title)
-    return HttpResponse("testing")
+    return render(request,'encyclopedia/wiki.html',{
+        "mdtext":util.get_entry(title),
+        'title':title
+    })
 
