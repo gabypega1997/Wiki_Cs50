@@ -1,3 +1,4 @@
+import re
 from django.shortcuts import render
 from django.http import HttpResponse
 from . import util
@@ -9,6 +10,8 @@ def index(request):
     })
 
 def title(request,title):
-    print(title)
-    return HttpResponse("testing")
+    return render(request,"encyclopedia/wiki.html",{
+        'title':title,
+        'get_entry': util.get_entry
+    })
 
