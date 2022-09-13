@@ -5,8 +5,14 @@
 {% endblock %}
 
 {% block body %}
+    {% if mdtext %}
+
     {% load markdownify %}
     {{ mdtext | markdownify }}
-    
+
+    {% else %}
+    <h1>Page not found</h1>
+
+    {% endif%}
 
 {% endblock %}
